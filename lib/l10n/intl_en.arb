@@ -399,6 +399,6 @@
  
   "darkMode": "Dark Mode",
   "completionDetails": "Completion Details",
-  "reportedImages": "Original Reported Images"
-
+  "reportedImages": "Original Reported Images",
+  "compressingVideo": "Compressing video..."
 }

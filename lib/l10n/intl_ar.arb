@@ -402,6 +402,7 @@
   "reportedImages": "الصور المرفقة بالبلاغ",
   "completionImages": "الصور بعد الإنجاز",
   "errorOccurred": "حدث خطأ",
-  "retry": "إعادة المحاولة"
+  "retry": "إعادة المحاولة",
+  "compressingVideo": "جاري ضغط الفيديو..."
 }
 

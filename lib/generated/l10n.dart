@@ -3028,6 +3028,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Compressing video...`
+  String get compressingVideo {
+    return Intl.message(
+      'Compressing video...',
+      name: 'compressingVideo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

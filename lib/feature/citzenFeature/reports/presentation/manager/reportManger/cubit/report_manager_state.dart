@@ -49,7 +49,8 @@ class SearchReportsFailure extends ReportManagerState {
 
 class CreateReportLoading extends ReportManagerState {
   double progress;
-  CreateReportLoading(this.progress);
+  bool isCompressing;
+  CreateReportLoading(this.progress, {this.isCompressing = false});
 }
 
 class CreateReportSuccess extends ReportManagerState {

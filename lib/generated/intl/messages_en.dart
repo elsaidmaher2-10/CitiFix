@@ -119,6 +119,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "complianceDocuments": MessageLookupByLibrary.simpleMessage(
       "Compliance Documents",
     ),
+    "compressingVideo": MessageLookupByLibrary.simpleMessage(
+      "Compressing video...",
+    ),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmDelete": MessageLookupByLibrary.simpleMessage("Confirm Delete"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),

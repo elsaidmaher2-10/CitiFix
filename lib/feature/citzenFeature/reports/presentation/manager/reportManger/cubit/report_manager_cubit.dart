@@ -57,10 +57,11 @@ class ReportCubit extends Cubit<ReportManagerState> {
 
   Future<void> createReport({required CreateReportRequest request}) async {
     if (isClosed) return;
+    emit(CreateReportLoading(0.0, isCompressing: true));
     await _progressSub?.cancel();
     _progressSub = reportRepository.onprogressStream.listen((onData) {
       if (isClosed) return;
-      emit(CreateReportLoading(onData));
+      emit(CreateReportLoading(onData, isCompressing: false));
     });
 
     final result = await reportRepository.addReport(request: request);

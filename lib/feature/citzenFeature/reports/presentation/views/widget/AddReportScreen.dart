@@ -74,28 +74,34 @@ class _AddReportScreenState extends State<AddReportScreen> {
             children: [
               if (state is CreateReportLoading) ...[
                 customloading(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: TweenAnimationBuilder<double>(
-                    tween: Tween<double>(end: state.progress.clamp(0.0, 1.0)),
-                    duration: Duration(milliseconds: 300),
-                    builder: (context, value, child) {
-                      return LinearProgressIndicator(
-                        backgroundColor: context.palette.surfaceContainerHigh,
-                        minHeight: 10,
-                        value: value,
-                        color: context.palette.primary,
-                      );
-                    },
+                if (state.isCompressing) ...[
+                  SizedBox(height: 10),
+                  Text(
+                    S.of(context).compressingVideo,
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                ),
-
-                SizedBox(height: 10),
-
-                Text(
-                  "${(state.progress * 100).toInt()}%",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                ] else ...[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: TweenAnimationBuilder<double>(
+                      tween: Tween<double>(end: state.progress.clamp(0.0, 1.0)),
+                      duration: Duration(milliseconds: 300),
+                      builder: (context, value, child) {
+                        return LinearProgressIndicator(
+                          backgroundColor: context.palette.surfaceContainerHigh,
+                          minHeight: 10,
+                          value: value,
+                          color: context.palette.primary,
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "${(state.progress * 100).toInt()}%",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
               ],
             ],
           ),

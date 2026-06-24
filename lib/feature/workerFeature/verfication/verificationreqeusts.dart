@@ -23,7 +23,7 @@ class _VerificationRequestsScreenState
   @override
   void initState() {
     super.initState();
-    context.read<VerificationInitCubit>().fetchRequests();
+    var fetchRequests = context.read<VerificationInitCubit>().fetchRequests();
   }
 
   @override
@@ -133,7 +133,10 @@ class _VerificationRequestsScreenState
                             ? NetworkImage(item.workerProfileImageUrl)
                             : null,
                         child: item.workerProfileImageUrl.isEmpty
-                            ? Icon(Icons.person, color: context.palette.onSurfaceVariant)
+                            ? Icon(
+                                Icons.person,
+                                color: context.palette.onSurfaceVariant,
+                              )
                             : null,
                       ),
                       SizedBox(width: ScreenUtilsManager.w12),
@@ -164,7 +167,9 @@ class _VerificationRequestsScreenState
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: ScreenUtilsManager.h12),
+                    padding: EdgeInsets.symmetric(
+                      vertical: ScreenUtilsManager.h12,
+                    ),
                     child: Divider(
                       thickness: 0.5,
                       color: context.palette.outline.withOpacity(0.2),
@@ -206,7 +211,12 @@ class _VerificationRequestsScreenState
     );
   }
 
-  Widget _buildIconInfoRow(IconData icon, String text, Color iconColor, BuildContext context) {
+  Widget _buildIconInfoRow(
+    IconData icon,
+    String text,
+    Color iconColor,
+    BuildContext context,
+  ) {
     return Row(
       children: [
         Container(
@@ -240,7 +250,11 @@ class _VerificationRequestsScreenState
       ),
       child: Row(
         children: [
-          Icon(Icons.info_outline, color: context.palette.red, size: ScreenUtilsManager.s18),
+          Icon(
+            Icons.info_outline,
+            color: context.palette.red,
+            size: ScreenUtilsManager.s18,
+          ),
           SizedBox(width: ScreenUtilsManager.w8),
           Expanded(
             child: Text(
@@ -291,6 +305,7 @@ class _VerificationRequestsScreenState
       ),
     );
   }
+
   Widget _buildErrorState(BuildContext context, String message) {
     return Center(
       key: const Key('error'),
@@ -343,7 +358,8 @@ class _VerificationRequestsScreenState
                   borderRadius: BorderRadius.circular(ScreenUtilsManager.r12),
                 ),
               ),
-              onPressed: () => context.read<VerificationInitCubit>().fetchRequests(),
+              onPressed: () =>
+                  context.read<VerificationInitCubit>().fetchRequests(),
 
               icon: Icon(Icons.refresh_rounded, size: ScreenUtilsManager.s20),
               label: Text(
@@ -357,33 +373,31 @@ class _VerificationRequestsScreenState
     );
   }
 }
-  
 
-  Widget _buildEmptyState(S s, BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.auto_awesome_motion_rounded,
-            size: ScreenUtilsManager.s80,
-            color: context.palette.onSurfaceVariant.withOpacity(0.2),
+Widget _buildEmptyState(S s, BuildContext context) {
+  return Center(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.auto_awesome_motion_rounded,
+          size: ScreenUtilsManager.s80,
+          color: context.palette.onSurfaceVariant.withOpacity(0.2),
+        ),
+        SizedBox(height: ScreenUtilsManager.h16),
+        Text(
+          "All caught up!",
+          style: GoogleFonts.cairo(
+            fontSize: ScreenUtilsManager.s20,
+            fontWeight: FontWeight.bold,
+            color: context.palette.onSurface,
           ),
-          SizedBox(height: ScreenUtilsManager.h16),
-          Text(
-            "All caught up!",
-            style: GoogleFonts.cairo(
-              fontSize: ScreenUtilsManager.s20,
-              fontWeight: FontWeight.bold,
-              color: context.palette.onSurface,
-            ),
-          ),
-          Text(
-            "No pending requests at the moment",
-            style: GoogleFonts.cairo(color: context.palette.onSurfaceVariant),
-          ),
-        ],
-      ),
-    );
-  }
-
+        ),
+        Text(
+          "No pending requests at the moment",
+          style: GoogleFonts.cairo(color: context.palette.onSurfaceVariant),
+        ),
+      ],
+    ),
+  );
+}
