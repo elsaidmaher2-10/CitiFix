@@ -231,7 +231,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
 
     return SizedBox(
       width: double.infinity,
-      height: 48.h,
+      height: 50.h,
       child: StreamBuilder<bool>(
         initialData: false,
         stream: confirmPasswordController.btnController.stream,

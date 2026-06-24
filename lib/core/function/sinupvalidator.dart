@@ -51,6 +51,16 @@ String? confvalidator(
   return null;
 }
 
+String? loginPasswordValidator(BuildContext context, String? value) {
+  if (value == null || value.trim().isEmpty) {
+    return S.of(context).passwordRequired;
+  }
+  if (value.trim().length < 8) {
+    return S.of(context).passwordMinLength;
+  }
+  return null;
+}
+
 String? nationalIdValidator(BuildContext context, String? value) {
   if (value == null || value.isEmpty) {
     return S.of(context).nationalIdRequired;

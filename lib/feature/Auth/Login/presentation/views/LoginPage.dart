@@ -40,7 +40,7 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginpageState extends State<Loginpage> {
-  GlobalKey<FormFieldState> key = GlobalKey();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool _isVisible = true;
   StreamController<bool> streamController = StreamController.broadcast();
   TextEditingController email = TextEditingController();
@@ -334,182 +334,197 @@ class _LoginpageState extends State<Loginpage> {
                               ),
                             ),
                             SizedBox(height: ScreenUtilsManager.h20),
-                            SizedBox(
-                              width: double.infinity,
-                              child: Form(
-                                key: key,
-                                child: Column(
-                                  children: [
-                                    SvgPicture.asset(
-                                      colorBlendMode: BlendMode.srcOut,
-                                      AssetValueManager.Klog,
-                                      height: ScreenUtilsManager.h120,
-                                    ),
-                                    SizedBox(height: ScreenUtilsManager.h9),
-                                    Text(
-                                      S.of(context).logIn,
-                                      style: GoogleFonts.cairo(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: ScreenUtilsManager.s34,
-                                        color: context.palette.kPrimary,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: ScreenUtilsManager.h20),
-                            CustomTextfromfield(
-                              controller: email,
-                              prefix: Icon(
-                                Icons.email,
-                                color: context.palette.lightGrey2,
-                              ),
-                              hinttext: S.of(context).hintEmail,
-                              validator: (value) {
-                                isvalidemail =
-                                    emailvalidator(context, value) == null
-                                    ? true
-                                    : false;
-                                btnController.add(isvalidemail && isvalidpass);
-                                return emailvalidator(context, value);
-                              },
-                              lable: S.of(context).email,
-                            ),
-                            SizedBox(height: ScreenUtilsManager.h20),
-                            StreamBuilder<bool>(
-                              initialData: _isVisible,
-                              stream: streamController.stream,
-                              builder:
-                                  (
-                                    BuildContext context,
-                                    AsyncSnapshot<bool> snapshot,
-                                  ) {
-                                    return CustomTextfromfield(
-                                      prefix: Icon(
-                                        Icons.password_outlined,
-                                        color: context.palette.lightGrey2,
-                                      ),
-                                      maxLines: 1,
-                                      controller: password,
-                                      validator: (value) {
-                                        if (value == null ||
-                                            value.trim().isEmpty) {
-                                          isvalidpass = false;
-
-                                          btnController.add(
-                                            isvalidemail && isvalidpass,
-                                          );
-                                          return S.of(context).passwordRequired;
-                                        } else {
-                                          isvalidpass = true;
-                                          btnController.add(
-                                            isvalidemail && isvalidpass,
-                                          );
-                                          return null;
-                                        }
-                                      },
-                                      obstext: snapshot.data ?? true,
-                                      hinttext: S.of(context).hintPassword,
-                                      suffix: IconButton(
-                                        onPressed: () {
-                                          isvisible();
-                                        },
-                                        icon: Icon(
-                                          snapshot.data == true
-                                              ? Icons.remove_red_eye
-                                              : Icons.visibility_off,
-                                          color: context.palette.lightGrey3,
+                            Form(
+                              key: formKey,
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: Column(
+                                      children: [
+                                        SvgPicture.asset(
+                                          colorBlendMode: BlendMode.srcOut,
+                                          AssetValueManager.Klog,
+                                          height: ScreenUtilsManager.h120,
                                         ),
-                                      ),
-                                      lable: S.of(context).password,
-                                    );
-                                  },
-                            ),
-                            SizedBox(height: ScreenUtilsManager.h20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ConstrainedBox(
-                                      constraints: BoxConstraints.tight(
-                                        Size(30, 30),
-                                      ),
-                                      child: Checkbox(
-                                        activeColor: context.palette.kPrimary,
-                                        value: ischeck,
-                                        onChanged: (onChanged) async {
-                                          setState(() {});
-                                          ischeck = onChanged ?? false;
-                                        },
-                                      ),
-                                    ),
-                                    Text(
-                                      S.of(context).rememberMe,
-                                      style: GoogleFonts.cairo(
-                                        fontSize: ScreenUtilsManager.s14,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                InkWell(
-                                  onTap: () {
-                                    Navigator.pushNamed(
-                                      context,
-                                      Routes.foregetpassword,
-                                    );
-                                  },
-                                  child: Text(
-                                    S.of(context).forgetPassword,
-                                    style: GoogleFonts.cairo(
-                                      color: context.palette.kPrimary,
-                                      fontSize: ScreenUtilsManager.s14,
+                                        SizedBox(height: ScreenUtilsManager.h9),
+                                        Text(
+                                          S.of(context).logIn,
+                                          style: GoogleFonts.cairo(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: ScreenUtilsManager.s34,
+                                            color: context.palette.kPrimary,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: ScreenUtilsManager.h30),
-                            SizedBox(
-                              height: 50.h,
-
-                              width: double.infinity,
-                              child: StreamBuilder<bool>(
-                                initialData: false,
-                                stream: btnController.stream,
-                                builder:
-                                    (
-                                      BuildContext context,
-                                      AsyncSnapshot<bool> snapshot,
-                                    ) => ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor:
-                                            context.palette.kPrimary,
-                                        foregroundColor: context.palette.white,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                            ScreenUtilsManager.r10,
+                                  SizedBox(height: ScreenUtilsManager.h20),
+                                  CustomTextfromfield(
+                                    controller: email,
+                                    prefix: Icon(
+                                      Icons.email,
+                                      color: context.palette.lightGrey2,
+                                    ),
+                                    hinttext: S.of(context).hintEmail,
+                                    validator: (value) {
+                                      isvalidemail =
+                                          emailvalidator(context, value) == null
+                                          ? true
+                                          : false;
+                                      btnController.add(
+                                        isvalidemail && isvalidpass,
+                                      );
+                                      return emailvalidator(context, value);
+                                    },
+                                    lable: S.of(context).email,
+                                  ),
+                                  SizedBox(height: ScreenUtilsManager.h20),
+                                  StreamBuilder<bool>(
+                                    initialData: _isVisible,
+                                    stream: streamController.stream,
+                                    builder:
+                                        (
+                                          BuildContext context,
+                                          AsyncSnapshot<bool> snapshot,
+                                        ) {
+                                          return CustomTextfromfield(
+                                            prefix: Icon(
+                                              Icons.password_outlined,
+                                              color: context.palette.lightGrey2,
+                                            ),
+                                            maxLines: 1,
+                                            controller: password,
+                                            validator: (value) {
+                                              final passwordError =
+                                                  loginPasswordValidator(
+                                                    context,
+                                                    value,
+                                                  );
+                                              isvalidpass =
+                                                  passwordError == null;
+                                              btnController.add(
+                                                isvalidemail && isvalidpass,
+                                              );
+                                              return passwordError;
+                                            },
+                                            obstext: snapshot.data ?? true,
+                                            hinttext: S
+                                                .of(context)
+                                                .hintPassword,
+                                            suffix: IconButton(
+                                              onPressed: () {
+                                                isvisible();
+                                              },
+                                              icon: Icon(
+                                                snapshot.data == true
+                                                    ? Icons.remove_red_eye
+                                                    : Icons.visibility_off,
+                                                color:
+                                                    context.palette.lightGrey3,
+                                              ),
+                                            ),
+                                            lable: S.of(context).password,
+                                          );
+                                        },
+                                  ),
+                                  SizedBox(height: ScreenUtilsManager.h20),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          ConstrainedBox(
+                                            constraints: BoxConstraints.tight(
+                                              Size(30, 30),
+                                            ),
+                                            child: Checkbox(
+                                              activeColor:
+                                                  context.palette.kPrimary,
+                                              value: ischeck,
+                                              onChanged: (onChanged) async {
+                                                setState(() {});
+                                                ischeck = onChanged ?? false;
+                                              },
+                                            ),
+                                          ),
+                                          Text(
+                                            S.of(context).rememberMe,
+                                            style: GoogleFonts.cairo(
+                                              fontSize: ScreenUtilsManager.s14,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                            context,
+                                            Routes.foregetpassword,
+                                          );
+                                        },
+                                        child: Text(
+                                          S.of(context).forgetPassword,
+                                          style: GoogleFonts.cairo(
+                                            color: context.palette.kPrimary,
+                                            fontSize: ScreenUtilsManager.s14,
                                           ),
                                         ),
                                       ),
-                                      onPressed: snapshot.data == true
-                                          ? () {
-                                              context
-                                                  .read<LoginmangerCubit>()
-                                                  .login(
-                                                    email: email.text,
-                                                    password: password.text,
-                                                  );
-                                            }
-                                          : null,
-                                      child: Text(
-                                        S.of(context).logIn,
-                                        style: GoogleFonts.cairo(),
-                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: ScreenUtilsManager.h30),
+                                  SizedBox(
+                                    height: 50.h,
+                                    width: double.infinity,
+                                    child: StreamBuilder<bool>(
+                                      initialData: false,
+                                      stream: btnController.stream,
+                                      builder:
+                                          (
+                                            BuildContext context,
+                                            AsyncSnapshot<bool> snapshot,
+                                          ) => ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                              backgroundColor:
+                                                  context.palette.kPrimary,
+                                              foregroundColor:
+                                                  context.palette.white,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                      ScreenUtilsManager.r10,
+                                                    ),
+                                              ),
+                                            ),
+                                            onPressed: snapshot.data == true
+                                                ? () {
+                                                    if (formKey.currentState
+                                                            ?.validate() ??
+                                                        false) {
+                                                      context
+                                                          .read<
+                                                            LoginmangerCubit
+                                                          >()
+                                                          .login(
+                                                            email: email.text,
+                                                            password:
+                                                                password.text,
+                                                          );
+                                                    }
+                                                  }
+                                                : null,
+                                            child: Text(
+                                              S.of(context).logIn,
+                                              style: GoogleFonts.cairo(),
+                                            ),
+                                          ),
                                     ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],

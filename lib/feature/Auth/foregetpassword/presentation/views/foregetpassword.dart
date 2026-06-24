@@ -133,6 +133,7 @@ class _ForegetpasswordState extends State<Foregetpassword> {
 
                       SizedBox(
                         width: double.infinity,
+                        height: 50.h,
                         child: StreamBuilder<bool>(
                           initialData: false,
                           stream: streamController.stream,
