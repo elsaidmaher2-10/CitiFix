@@ -40,17 +40,38 @@ class ReportScreenController {
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       useSafeArea: true,
-      builder: (context) => PickerBottomSheet(
+      builder: (bottomSheetContext) => PickerBottomSheet(
         onCameraPhoto: () async {
-          Navigator.pop(context);
-          await _pickFromCamera(isVideo: false);
+          Navigator.pop(bottomSheetContext);
+          await _pickFromCamera(context, isVideo: false);
         },
         onCameraVideo: () async {
-          Navigator.pop(context);
-          await _pickFromCamera(isVideo: true);
+          Navigator.pop(bottomSheetContext);
+          await _pickFromCamera(context, isVideo: true);
         },
         onFilesSelected: (files) {
-          selectedFiles = [...files.reversed, ...selectedFiles];
+          List<File> validFiles = [];
+          bool hasOversized = false;
+          for (var file in files) {
+            if (file.lengthSync() > 50 * 1024 * 1024) {
+              hasOversized = true;
+            } else {
+              validFiles.add(file);
+            }
+          }
+          if (hasOversized && context.mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  Localizations.localeOf(context).languageCode == 'ar'
+                      ? 'بعض الملفات كبيرة جداً وتم تجاهلها (الحد الأقصى 50 ميجابايت)'
+                      : 'Some files are too large and were ignored (Max 50MB)',
+                ),
+                backgroundColor: Colors.red,
+              ),
+            );
+          }
+          selectedFiles = [...validFiles.reversed, ...selectedFiles];
           streamController.add(selectedFiles);
           updateButtonStatus();
         },
@@ -58,14 +79,30 @@ class ReportScreenController {
     );
   }
 
-  Future<void> _pickFromCamera({required bool isVideo}) async {
+  Future<void> _pickFromCamera(BuildContext context, {required bool isVideo}) async {
     try {
       if (isVideo) {
         final XFile? video = await _imagePicker.pickVideo(
           source: ImageSource.camera,
         );
         if (video != null) {
-          selectedFiles = [File(video.path), ...selectedFiles];
+          File file = File(video.path);
+          if (file.lengthSync() > 50 * 1024 * 1024) {
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    Localizations.localeOf(context).languageCode == 'ar'
+                        ? 'حجم الفيديو كبير جداً (الحد الأقصى 50 ميجابايت)'
+                        : 'Video size is too large (Max 50MB)',
+                  ),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            }
+            return;
+          }
+          selectedFiles = [file, ...selectedFiles];
           streamController.add(selectedFiles);
           updateButtonStatus();
         }
@@ -74,7 +111,23 @@ class ReportScreenController {
           source: ImageSource.camera,
         );
         if (photo != null) {
-          selectedFiles = [File(photo.path), ...selectedFiles];
+          File file = File(photo.path);
+          if (file.lengthSync() > 50 * 1024 * 1024) {
+            if (context.mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    Localizations.localeOf(context).languageCode == 'ar'
+                        ? 'حجم الصورة كبير جداً (الحد الأقصى 50 ميجابايت)'
+                        : 'Image size is too large (Max 50MB)',
+                  ),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            }
+            return;
+          }
+          selectedFiles = [file, ...selectedFiles];
           streamController.add(selectedFiles);
           updateButtonStatus();
         }

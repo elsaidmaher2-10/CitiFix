@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
               .where((e) => e.status.toLowerCase() == "pending")
               .length;
           final int activeCount = reports
-              .where((e) => e.status == "InProgress")
+              .where((e) => e.status.toLowerCase() == "assigned")
               .length;
 
           return RefreshIndicator.adaptive(
@@ -111,7 +111,7 @@ class HomeScreen extends StatelessWidget {
                           child: StatusCard(
                             color: context.palette.kPrimary,
                             number: activeCount,
-                            title: S.of(context).active,
+                            title: S.of(context).assigned,
                             iconPath: AssetValueManager.active,
                             iconcolor: context.palette.kPrimary,
                           ),

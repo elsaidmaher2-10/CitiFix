@@ -97,6 +97,19 @@ class Customimagepicker extends StatelessWidget {
     if (source != null) {
       final File? image = await controller.pickImage(source);
       if (image != null && context.mounted) {
+        if (image.lengthSync() > 10 * 1024 * 1024) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                Localizations.localeOf(context).languageCode == 'ar'
+                    ? 'حجم الصورة كبير جداً (الحد الأقصى 10 ميجابايت)'
+                    : 'Image size is too large (Max 10MB)',
+              ),
+              backgroundColor: Colors.red,
+            ),
+          );
+          return;
+        }
         await context.read<UserProfileInfoCubit>().updateUserProfleImage(image);
       }
     }
