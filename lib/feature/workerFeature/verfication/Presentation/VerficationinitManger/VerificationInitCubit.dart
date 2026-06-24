@@ -1,3 +1,4 @@
+import 'package:citifix/core/database/remote/error/failureResponse.dart';
 import 'package:citifix/feature/workerFeature/verfication/Presentation/VerficationinitManger/verficationinitState.dart';
 import 'package:citifix/feature/workerFeature/verfication/data/model/VerificationrequestModel.dart';
 import 'package:citifix/feature/workerFeature/verfication/data/model/verficationmodel.dart';
@@ -73,12 +74,28 @@ class VerificationInitCubit extends Cubit<VerificationInitState> {
     final result = await repo.getvrificationRequest();
     result.fold(
       (failure) {
-        emit(VerificationInitError(failure.errors.join()));
+        if (isNoVerificationRequestFailure(failure)) {
+          emit(VerificationNoRequest());
+        } else {
+          emit(VerificationInitError(failure.errors.join()));
+        }
       },
       (workerRequestModel) {
         emit(VerificationSuccess(workerRequest: workerRequestModel));
       },
     );
+  }
+
+  static bool isNoVerificationRequestFailure(FailureResponse failure) {
+    final normalizedMessage = failure.errors.join(' ').toLowerCase();
+    final has404Status = failure.statusCode == 404;
+    final hasNoRequestText =
+        normalizedMessage.contains('no verification request') ||
+        normalizedMessage.contains('request not found') ||
+        normalizedMessage.contains('not found') ||
+        normalizedMessage.contains('لم يتم العثور على طلب تحقق');
+
+    return has404Status || hasNoRequestText;
   }
 
   Future<void> fetchRequests() async {

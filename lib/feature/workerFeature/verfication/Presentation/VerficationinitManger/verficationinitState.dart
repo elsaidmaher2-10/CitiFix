@@ -19,6 +19,8 @@ class VerificationInitError extends VerificationInitState {
   VerificationInitError(this.message);
 }
 
+class VerificationNoRequest extends VerificationInitState {}
+
 class VerificationRequestLoading extends VerificationInitState {
   final VerficationInitList? areas;
   final VerficationInitList? departments;

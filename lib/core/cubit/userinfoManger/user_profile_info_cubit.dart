@@ -14,26 +14,43 @@ class UserProfileInfoCubit extends Cubit<UserProfileInfoState> {
     _loadInitialData();
   }
   final Userprofilerepos userprofilerepos;
+
   void _loadInitialData() async {
-    String? cachedUser = PrefrenceManager().getstring(Constantmanger.cacheKey);
+    final cachedUser = _readCachedUserProfile();
+
     if (cachedUser != null) {
-      emit(
-        UserProfileInfoSuccess(UserProfile.fromJson(jsonDecode(cachedUser))),
-      );
-    } else {
-      await getUserProfleInfo();
+      emit(UserProfileInfoSuccess(cachedUser));
+      await getUserProfleInfo(showLoading: false);
+      return;
     }
+
+    await getUserProfleInfo();
   }
 
-  Future<void> getUserProfleInfo() async {
-    if (state is! UserProfileInfoSuccess) {
+  Future<void> getUserProfleInfo({bool showLoading = true}) async {
+    if (showLoading && state is! UserProfileInfoSuccess) {
       emit(UserProfileInfoLoading());
     }
+
     final result = await userprofilerepos.getuserInfo();
-    result.fold(
-      (l) => emit(UserProfileInfoError(l.errors.join())),
-      (r) => emit(UserProfileInfoSuccess(r)),
-    );
+    result.fold((l) {
+      if (state is! UserProfileInfoSuccess) {
+        emit(UserProfileInfoError(l.errors.join()));
+      }
+    }, (r) => emit(UserProfileInfoSuccess(r)));
+  }
+
+  UserProfile? _readCachedUserProfile() {
+    final cachedUser = PrefrenceManager().getstring(Constantmanger.cacheKey);
+    if (cachedUser == null || cachedUser.isEmpty) {
+      return null;
+    }
+
+    try {
+      return UserProfile.fromJson(jsonDecode(cachedUser));
+    } catch (_) {
+      return null;
+    }
   }
 
   void clear() {

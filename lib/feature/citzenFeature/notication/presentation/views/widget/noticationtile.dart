@@ -70,15 +70,18 @@ class NotificationTile extends StatelessWidget {
                 ),
               );
             } else {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ReportDetailsScreen(
-                    reportId: item.id,
-                    isachivement: false,
+              final reportId = extractReportNumber(item.message);
+              if (reportId != null) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ReportDetailsScreen(
+                      reportId: reportId,
+                      isachivement: false,
+                    ),
                   ),
-                ),
-              );
+                );
+              }
             }
           }
         },

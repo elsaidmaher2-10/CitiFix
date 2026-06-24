@@ -62,19 +62,13 @@ class UnderReviewScreen extends StatelessWidget {
           height: ScreenUtilsManager.w1,
         ),
       ),
-      title: Row(
-        children: [
-          Icon(Icons.location_city, color: context.palette.workerprimary),
-          SizedBox(width: ScreenUtilsManager.p8),
-          Text(
-            s.appTitle,
-            style: GoogleFonts.cairo(
-              color: context.palette.onSurface,
-              fontWeight: FontWeight.bold,
-              fontSize: ScreenUtilsManager.s18,
-            ),
-          ),
-        ],
+      title: Text(
+        s.appTitle,
+        style: GoogleFonts.cairo(
+          color: context.palette.onSurface,
+          fontWeight: FontWeight.bold,
+          fontSize: ScreenUtilsManager.s18,
+        ),
       ),
       actions: [
         Padding(

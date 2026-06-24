@@ -2,6 +2,7 @@ import 'package:citifix/core/database/local/prefmanger.dart';
 import 'package:citifix/core/resource/colormanager.dart';
 import 'package:citifix/core/resource/screenutilsmaanger.dart';
 import 'package:citifix/feature/citzenFeature/notication/presentation/views/widget/noticationtile.dart';
+import 'package:citifix/feature/citzenFeature/reports/presentation/views/reportdetails.dart';
 import 'package:citifix/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

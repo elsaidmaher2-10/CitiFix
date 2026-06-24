@@ -75,31 +75,31 @@ class _GateVerificationBody extends StatelessWidget {
           });
         }
 
-        if (state is VerificationInitError) {
-          if (state.message.contains("No verification request")) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              if (context.mounted) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => BlocProvider(
-                      create: (context) =>
-                          VerificationInitCubit(getIt<VerficationInitRepo>()),
-                      child: const VerificationInit(),
-                    ),
+        if (state is VerificationNoRequest) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (context.mounted) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => BlocProvider(
+                    create: (context) =>
+                        VerificationInitCubit(getIt<VerficationInitRepo>()),
+                    child: const VerificationInit(),
                   ),
-                );
-              }
-            });
-          } else {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              if (context.mounted) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(state.message)));
-              }
-            });
-          }
+                ),
+              );
+            }
+          });
+        }
+
+        if (state is VerificationInitError) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (context.mounted) {
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text(state.message)));
+            }
+          });
         }
       },
       builder: (context, state) {

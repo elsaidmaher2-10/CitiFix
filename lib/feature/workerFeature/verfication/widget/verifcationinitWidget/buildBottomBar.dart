@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../../core/resource/colormanager.dart';
-import '../../../../../core/resource/constantmanger.dart';
 import '../../../../../core/resource/screenutilsmaanger.dart';
+import '../../../../../generated/l10n.dart';
 import '../../data/model/VerificationrequestModel.dart';
 
 Widget buildBottomBar(
@@ -53,9 +53,11 @@ Widget buildBottomBar(
             elevation: isEnabled ? 2 : 0,
           ),
           child: Text(
-            Constantmanger.verifyButtonText,
+            S.of(context).verifyNow,
             style: GoogleFonts.cairo(
-              color: isEnabled ? Colors.white : context.palette.onSurfaceVariant.withOpacity(0.5),
+              color: isEnabled
+                  ? Colors.white
+                  : context.palette.onSurfaceVariant.withOpacity(0.5),
               fontWeight: FontWeight.bold,
               fontSize: ScreenUtilsManager.s16,
             ),
