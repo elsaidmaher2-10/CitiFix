@@ -89,7 +89,7 @@ class _AchievemrntReportScreenState extends State<AchievemrntReportScreen> {
                             bottom: BorderSide(
                               color: Theme.of(
                                 context,
-                              ).colorScheme.outline.withOpacity(0.1),
+                              ).colorScheme.outline.withValues(alpha: 0.1),
                               width: 0.5,
                             ),
                           )

@@ -29,7 +29,7 @@ class TaskCard extends StatelessWidget {
         color: context.palette.surface,
         borderRadius: BorderRadius.circular(ScreenUtilsManager.r24),
         border: Border.all(
-          color: context.palette.outline.withOpacity(0.15),
+          color: context.palette.outline.withValues(alpha: 0.15),
         ),
         boxShadow: [
           BoxShadow(
@@ -85,11 +85,11 @@ class TaskCard extends StatelessWidget {
                     vertical: ScreenUtilsManager.h6,
                   ),
                   decoration: BoxDecoration(
-                    color: statusColor.withOpacity(0.9),
+                    color: statusColor.withValues(alpha: 0.9),
                     borderRadius: BorderRadius.circular(ScreenUtilsManager.r20),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: ScreenUtilsManager.s4,
                       ),
                     ],
@@ -138,7 +138,7 @@ class TaskCard extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.all(ScreenUtilsManager.w4),
                       decoration: BoxDecoration(
-                        color: context.palette.onSurfaceVariant.withOpacity(0.1),
+                        color: context.palette.onSurfaceVariant.withValues(alpha: 0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(
@@ -155,7 +155,7 @@ class TaskCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.cairo(
                           fontSize: ScreenUtilsManager.s12,
-                          color: context.palette.onSurfaceVariant.withOpacity(0.8),
+                          color: context.palette.onSurfaceVariant.withValues(alpha: 0.8),
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -165,7 +165,7 @@ class TaskCard extends StatelessWidget {
                       "${report.createdAt.day}/${report.createdAt.month}",
                       style: GoogleFonts.cairo(
                         fontSize: ScreenUtilsManager.s11,
-                        color: context.palette.onSurfaceVariant.withOpacity(0.5),
+                        color: context.palette.onSurfaceVariant.withValues(alpha: 0.5),
                         fontWeight: FontWeight.w600,
                       ),
                     ),

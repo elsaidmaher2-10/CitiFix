@@ -28,7 +28,7 @@ class StatusCard extends StatelessWidget {
         color: context.palette.surface,
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
-          color: context.palette.outline.withOpacity(0.12),
+          color: context.palette.outline.withValues(alpha: 0.12),
           width: 1,
         ),
         boxShadow: [
@@ -49,7 +49,7 @@ class StatusCard extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(6.w),
                 decoration: BoxDecoration(
-                  color: iconcolor.withOpacity(0.1),
+                  color: iconcolor.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8.r),
                 ),
                 child: SvgPicture.asset(

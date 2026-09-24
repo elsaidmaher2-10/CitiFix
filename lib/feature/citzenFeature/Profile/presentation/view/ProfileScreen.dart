@@ -124,7 +124,7 @@ class ProfileScreen extends StatelessWidget {
                   bottom: BorderSide(
                     color: Theme.of(
                       context,
-                    ).colorScheme.outline.withOpacity(0.1),
+                    ).colorScheme.outline.withValues(alpha: 0.1),
                     width: 0.5,
                   ),
                 )
@@ -151,7 +151,7 @@ class ProfileScreen extends StatelessWidget {
               onPressed: () => onLogoutPressed(context),
               icon: const Icon(Icons.logout_rounded),
               backgroundColor: isDark
-                  ? context.palette.error.withOpacity(0.15)
+                  ? context.palette.error.withValues(alpha: 0.15)
                   : context.palette.redLight,
               foregroundColor: context.palette.red,
               lable: S.of(context).logout,
@@ -187,7 +187,7 @@ class LogoutConfirmDialog extends StatelessWidget {
     return showDialog<bool>(
       context: context,
       barrierDismissible: true,
-      barrierColor: Colors.black.withOpacity(0.5),
+      barrierColor: Colors.black.withValues(alpha: 0.5),
       builder: (_) => const LogoutConfirmDialog(),
     );
   }
@@ -217,7 +217,7 @@ class LogoutConfirmDialog extends StatelessWidget {
               padding: EdgeInsets.all(ScreenUtilsManager.h16),
               decoration: BoxDecoration(
                 color: isDark
-                    ? context.palette.error.withOpacity(0.15)
+                    ? context.palette.error.withValues(alpha: 0.15)
                     : context.palette.redLight,
                 shape: BoxShape.circle,
               ),

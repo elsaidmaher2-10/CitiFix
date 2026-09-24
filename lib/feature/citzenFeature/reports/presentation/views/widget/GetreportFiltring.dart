@@ -20,7 +20,7 @@ class FliterCheap extends StatelessWidget {
         boxShadow: [
           if (isActive)
             BoxShadow(
-              color: primary.withOpacity(0.35),
+              color: primary.withValues(alpha: 0.35),
               blurRadius: 8,
               offset: const Offset(0, 4),
             ),
@@ -28,7 +28,7 @@ class FliterCheap extends StatelessWidget {
         border: Border.all(
           color: isActive
               ? Colors.transparent
-              : context.palette.outline.withOpacity(0.45),
+              : context.palette.outline.withValues(alpha: 0.45),
         ),
       ),
       child: Text(

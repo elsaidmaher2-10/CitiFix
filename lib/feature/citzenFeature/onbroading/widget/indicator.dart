@@ -28,7 +28,7 @@ class CustomIndicator extends StatelessWidget {
     final Color schemeDot = Theme.of(context)
         .colorScheme
         .onSurfaceVariant
-        .withOpacity(0.45);
+        .withValues(alpha: 0.45);
     final Color resolvedDot =
         dotColor == Colors.grey ? schemeDot : dotColor;
     return SmoothPageIndicator(

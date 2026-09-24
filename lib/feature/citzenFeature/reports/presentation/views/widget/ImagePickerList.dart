@@ -72,8 +72,8 @@ class ImagePickerList extends StatelessWidget {
                                 onTap: () => onRemove(index),
                                 child: CircleAvatar(
                                   radius: 12.r,
-                                  backgroundColor: Colors.black.withOpacity(
-                                    0.5,
+                                  backgroundColor: Colors.black.withValues(
+                                    alpha: 0.5,
                                   ),
                                   child: Icon(
                                     Icons.close,

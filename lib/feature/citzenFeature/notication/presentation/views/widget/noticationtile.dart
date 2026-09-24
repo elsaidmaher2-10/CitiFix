@@ -85,8 +85,8 @@ class NotificationTile extends StatelessWidget {
             }
           }
         },
-        highlightColor: primaryColor.withOpacity(0.05),
-        splashColor: primaryColor.withOpacity(0.1),
+        highlightColor: primaryColor.withValues(alpha: 0.05),
+        splashColor: primaryColor.withValues(alpha: 0.1),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
@@ -94,19 +94,19 @@ class NotificationTile extends StatelessWidget {
           decoration: BoxDecoration(
             color: item.isRead
                 ? context.palette.surface
-                : context.palette.primary.withOpacity(0.05),
+                : context.palette.primary.withValues(alpha: 0.05),
             borderRadius: BorderRadius.circular(ScreenUtilsManager.r15),
             border: Border.all(
               color: item.isRead
-                  ? context.palette.outline.withOpacity(0.2)
-                  : context.palette.primary.withOpacity(0.3),
+                  ? context.palette.outline.withValues(alpha: 0.2)
+                  : context.palette.primary.withValues(alpha: 0.3),
               width: 1,
             ),
             boxShadow: item.isRead
                 ? []
                 : [
                     BoxShadow(
-                      color: context.palette.primary.withOpacity(0.05),
+                      color: context.palette.primary.withValues(alpha: 0.05),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -162,7 +162,7 @@ class NotificationTile extends StatelessWidget {
                       style: GoogleFonts.cairo(
                         fontSize: ScreenUtilsManager.s14,
                         color: item.isRead
-                            ? context.palette.onSurfaceVariant.withOpacity(0.7)
+                            ? context.palette.onSurfaceVariant.withValues(alpha: 0.7)
                             : context.palette.onSurfaceVariant,
                         height: 1.4,
                       ),
@@ -188,8 +188,8 @@ class NotificationTile extends StatelessWidget {
           padding: EdgeInsets.all(ScreenUtilsManager.w10),
           decoration: BoxDecoration(
             color: item.isRead
-                ? context.palette.outline.withOpacity(0.1)
-                : primaryColor.withOpacity(0.1),
+                ? context.palette.outline.withValues(alpha: 0.1)
+                : primaryColor.withValues(alpha: 0.1),
             shape: BoxShape.circle,
           ),
           child: Icon(
@@ -229,7 +229,7 @@ class NotificationTile extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.all(ScreenUtilsManager.w8),
           decoration: BoxDecoration(
-            color: context.palette.red.withOpacity(0.1),
+            color: context.palette.red.withValues(alpha: 0.1),
             shape: BoxShape.circle,
           ),
           child: Icon(

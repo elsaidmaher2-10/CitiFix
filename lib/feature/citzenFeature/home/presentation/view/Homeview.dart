@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.all(ScreenUtilsManager.w8),
                           decoration: BoxDecoration(
-                            color: context.palette.kPrimary.withOpacity(0.1),
+                            color: context.palette.kPrimary.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(ScreenUtilsManager.r8),
                           ),
                           child: SvgPicture.asset(
@@ -167,7 +167,7 @@ class HomeScreen extends StatelessWidget {
                                 horizontal: 12.w,
                                 vertical: 6.h,
                               ),
-                              backgroundColor: context.palette.kPrimary.withOpacity(0.05),
+                              backgroundColor: context.palette.kPrimary.withValues(alpha: 0.05),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(ScreenUtilsManager.r20),
                               ),
@@ -236,7 +236,7 @@ class HomeScreen extends StatelessWidget {
                 color: context.palette.surface,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: context.palette.outline.withOpacity(0.1),
+                  color: context.palette.outline.withValues(alpha: 0.1),
                   width: 2,
                 ),
                 boxShadow: [
@@ -249,7 +249,7 @@ class HomeScreen extends StatelessWidget {
               child: Icon(
                 Icons.receipt_long_rounded,
                 size: 56.r,
-                color: context.palette.kPrimary.withOpacity(0.4),
+                color: context.palette.kPrimary.withValues(alpha: 0.4),
               ),
             ),
             SizedBox(height: ScreenUtilsManager.h20),
@@ -270,7 +270,7 @@ class HomeScreen extends StatelessWidget {
                 style: GoogleFonts.cairo(
                   fontSize: ScreenUtilsManager.s14,
                   fontWeight: FontWeight.w600,
-                  color: context.palette.onSurfaceVariant.withOpacity(0.7),
+                  color: context.palette.onSurfaceVariant.withValues(alpha: 0.7),
                 ),
               ),
             ),

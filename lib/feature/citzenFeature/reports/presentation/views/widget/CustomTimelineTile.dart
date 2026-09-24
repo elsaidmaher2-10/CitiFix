@@ -23,7 +23,7 @@ class CustomTimelineTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Color lineMuted =
-        context.palette.outline.withOpacity(0.55);
+        context.palette.outline.withValues(alpha: 0.55);
     return SizedBox(
       height: 90.h,
       child: TimelineTile(
@@ -74,7 +74,7 @@ class CustomTimelineTile extends StatelessWidget {
 
   Widget _buildIndicator(BuildContext context) {
     final Color borderMuted =
-        context.palette.outline.withOpacity(0.65);
+        context.palette.outline.withValues(alpha: 0.65);
     return Container(
       decoration: BoxDecoration(
         shape: BoxShape.circle,

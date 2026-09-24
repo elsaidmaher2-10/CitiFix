@@ -37,7 +37,7 @@ class AchievementReportCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16.r),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.12),
+              color: Colors.black.withValues(alpha: 0.12),
               blurRadius: 15,
               offset: const Offset(0, 5),
             ),
@@ -120,7 +120,7 @@ class AchievementReportCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
       decoration: BoxDecoration(
-        color: Colors.green.withOpacity(0.1),
+        color: Colors.green.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: Row(
@@ -195,7 +195,7 @@ class AchievementReportCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: context.palette.surfaceContainerLow,
         border: Border(
-          top: BorderSide(color: context.palette.outline.withOpacity(0.35)),
+          top: BorderSide(color: context.palette.outline.withValues(alpha: 0.35)),
         ),
       ),
       child: Row(
@@ -206,7 +206,7 @@ class AchievementReportCard extends StatelessWidget {
             style: GoogleFonts.cairo(
               fontSize: 12.sp,
               fontWeight: FontWeight.bold,
-              color: context.palette.kPrimary.withOpacity(0.7),
+              color: context.palette.kPrimary.withValues(alpha: 0.7),
             ),
           ),
           InkWell(

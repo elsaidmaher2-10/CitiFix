@@ -36,7 +36,7 @@ class ReportDetailsAppbar extends StatelessWidget {
       leading: IconButton(
         icon: CircleAvatar(
           backgroundColor:
-              context.palette.surfaceContainerLowest.withOpacity(0.92),
+              context.palette.surfaceContainerLowest.withValues(alpha: 0.92),
           child: Icon(
             CupertinoIcons.back,
             color: context.palette.kPrimary,
@@ -97,7 +97,7 @@ class ReportDetailsAppbar extends StatelessWidget {
                   dotSize: 8,
                   controller: pageController,
                   activeColor: context.palette.kPrimary,
-                  dotColor: context.palette.onPrimary.withOpacity(0.55),
+                  dotColor: context.palette.onPrimary.withValues(alpha: 0.55),
                   count: mediaItems.length,
                 ),
               ),

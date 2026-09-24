@@ -43,7 +43,7 @@ class Saveeditprofile extends StatelessWidget {
                   backgroundColor: themeColor,
                   foregroundColor: Colors.white,
                   // Improved disabled state
-                  disabledBackgroundColor: context.palette.lightGrey.withOpacity(0.5),
+                  disabledBackgroundColor: context.palette.lightGrey.withValues(alpha: 0.5),
                   disabledForegroundColor: context.palette.lightGrey2,
                   
                   padding: EdgeInsets.symmetric(vertical: ScreenUtilsManager.h16),
@@ -52,7 +52,7 @@ class Saveeditprofile extends StatelessWidget {
                   ),
                   
                   elevation: isEnabled ? 8 : 0,
-                  shadowColor: themeColor.withOpacity(0.4),
+                  shadowColor: themeColor.withValues(alpha: 0.4),
                 ),
                 child: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),

@@ -50,7 +50,7 @@ class _IssuePhotosSectionState extends State<IssuePhotosSection> {
             borderRadius: BorderRadius.circular(ScreenUtilsManager.r16),
             boxShadow: [
               BoxShadow(
-                color: context.palette.black.withOpacity(0.05),
+                color: context.palette.black.withValues(alpha: 0.05),
                 blurRadius: ScreenUtilsManager.s10,
                 offset: Offset(0, ScreenUtilsManager.h5),
               ),
@@ -111,7 +111,7 @@ class _IssuePhotosSectionState extends State<IssuePhotosSection> {
                     controller: _pageController,
                     count: widget.mediaItems.length,
                     activeColor: context.palette.kPrimary,
-                    dotColor: context.palette.white.withOpacity(0.7),
+                    dotColor: context.palette.white.withValues(alpha: 0.7),
                   ),
                 ),
             ],

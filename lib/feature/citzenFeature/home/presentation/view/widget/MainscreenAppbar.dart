@@ -23,7 +23,7 @@ class MainscreenAppbar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       shape: Border(
         bottom: BorderSide(
-          color: context.palette.outline.withOpacity(isDark ? 0.1 : 0.05),
+          color: context.palette.outline.withValues(alpha: isDark ? 0.1 : 0.05),
           width: 1,
         ),
       ),
@@ -134,7 +134,7 @@ class MainscreenAppbar extends StatelessWidget implements PreferredSizeWidget {
                                       ),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Colors.black.withOpacity(0.15),
+                                          color: Colors.black.withValues(alpha: 0.15),
                                           blurRadius: 4,
                                           offset: const Offset(0, 2),
                                         ),

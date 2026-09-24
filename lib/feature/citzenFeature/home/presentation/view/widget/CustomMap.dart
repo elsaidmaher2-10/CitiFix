@@ -323,11 +323,11 @@ class _CustomMapState extends State<CustomMap> with TickerProviderStateMixin {
                               vertical: 8,
                             ),
                             decoration: BoxDecoration(
-                              color: context.palette.surface.withOpacity(0.92),
+                              color: context.palette.surface.withValues(alpha: 0.92),
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.08),
+                                  color: Colors.black.withValues(alpha: 0.08),
                                   blurRadius: 10,
                                   offset: const Offset(0, 4),
                                 ),

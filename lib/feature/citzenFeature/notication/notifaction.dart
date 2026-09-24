@@ -139,7 +139,7 @@ class _NotificationCenterState extends State<NotificationCenter> {
       child: ListView.separated(
         padding: EdgeInsets.all(ScreenUtilsManager.w12),
         itemCount: notifications.length,
-        separatorBuilder: (_, __) => SizedBox(height: ScreenUtilsManager.h10),
+        separatorBuilder: (_, _) => SizedBox(height: ScreenUtilsManager.h10),
         itemBuilder: (context, index) {
           final item = notifications[index];
           return Dismissible(
@@ -180,7 +180,7 @@ class _NotificationCenterState extends State<NotificationCenter> {
           Icon(
             Icons.notifications_none_rounded,
             size: ScreenUtilsManager.s80,
-            color: primaryColor.withOpacity(0.2),
+            color: primaryColor.withValues(alpha: 0.2),
           ),
           SizedBox(height: ScreenUtilsManager.h16),
           Text(
@@ -206,7 +206,7 @@ class _NotificationCenterState extends State<NotificationCenter> {
             Container(
               padding: EdgeInsets.all(ScreenUtilsManager.w20),
               decoration: BoxDecoration(
-                color: context.palette.red.withOpacity(0.1),
+                color: context.palette.red.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(

@@ -26,7 +26,7 @@ class Customonbroadingitem extends StatelessWidget {
           end: Alignment.bottomCenter,
           colors: [
             context.palette.reportsPageBackground,
-            context.palette.reportsPageBackground.withOpacity(0.92),
+            context.palette.reportsPageBackground.withValues(alpha: 0.92),
             context.palette.surfaceContainerLowest,
           ],
         ),
@@ -77,7 +77,7 @@ class Customonbroadingitem extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.cairo(
                   fontSize: 15.sp,
-                  color: context.palette.lightGrey6.withOpacity(0.8),
+                  color: context.palette.lightGrey6.withValues(alpha: 0.8),
                   height: 1.5,
                 ),
               ),
@@ -105,7 +105,7 @@ class Customonbroadingitem extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
             decoration: BoxDecoration(
-              color: context.palette.lightGrey.withOpacity(0.1),
+              color: context.palette.lightGrey.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Text(
@@ -144,7 +144,7 @@ class Customonbroadingitem extends StatelessWidget {
                     ),
                   ),
                   elevation: 5,
-                  shadowColor: context.palette.kPrimary.withOpacity(0.4),
+                  shadowColor: context.palette.kPrimary.withValues(alpha: 0.4),
                 ),
                 onPressed: () => _handleNext(context, provider, isLastPage),
                 child: isLastPage

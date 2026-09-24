@@ -160,7 +160,7 @@ class CitifixPalette extends ThemeExtension<CitifixPalette> {
       textDark: ColorManger.textDark,
       textGrey: ColorManger.textGrey,
       border: ColorManger.border,
-      shadow: Colors.black.withOpacity(0.04),
+      shadow: Colors.black.withValues(alpha: 0.04),
     );
   }
 
@@ -202,7 +202,7 @@ class CitifixPalette extends ThemeExtension<CitifixPalette> {
       notificationRedStart: Color(0xFFFF6B6B),
       notificationRedEnd: Color(0xFFFF5252),
       grey300: outlineDark,
-      primaryOpacity20: ColorManger.workerprimary.withOpacity(0.2),
+      primaryOpacity20: ColorManger.workerprimary.withValues(alpha: 0.2),
       black87: onSurf,
       completedButton: ColorManger.completedButton,
       black54: onTertiary,
@@ -273,7 +273,7 @@ class CitifixPalette extends ThemeExtension<CitifixPalette> {
       textDark: onSurf,
       textGrey: onTertiary,
       border: borderDark,
-      shadow: Colors.black.withOpacity(0.3),
+      shadow: Colors.black.withValues(alpha: 0.3),
     );
   }
 

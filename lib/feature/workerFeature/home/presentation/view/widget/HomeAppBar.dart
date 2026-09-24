@@ -122,7 +122,7 @@ class WorkerMainscreenAppbar extends StatelessWidget
                                       ),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Colors.black.withOpacity(0.2),
+                                          color: Colors.black.withValues(alpha: 0.2),
                                           blurRadius: ScreenUtilsManager.s4,
                                           offset: Offset(
                                             0,
@@ -179,7 +179,7 @@ class WorkerMainscreenAppbar extends StatelessWidget
                 child: Icon(
                   Icons.menu_rounded,
                   size: ScreenUtilsManager.s26,
-                  color: context.palette.onSurface.withOpacity(0.8),
+                  color: context.palette.onSurface.withValues(alpha: 0.8),
                 ),
               ),
             ),

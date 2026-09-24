@@ -22,7 +22,7 @@ class Chanagepassword extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(ScreenUtilsManager.w16),
         decoration: BoxDecoration(
-          color: context.palette.kPrimary.withOpacity(0.05),
+          color: context.palette.kPrimary.withValues(alpha: 0.05),
           borderRadius: BorderRadius.circular(ScreenUtilsManager.r14),
         ),
         child: Row(

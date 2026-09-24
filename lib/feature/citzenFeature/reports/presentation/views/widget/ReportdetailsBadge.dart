@@ -16,7 +16,7 @@ Widget buildStatusBadge(String text) {
       color: StatusReport.values
           .firstWhere((e) => e.value == text)
           .color
-          .withOpacity(0.2),
+          .withValues(alpha: 0.2),
       borderRadius: BorderRadius.circular(ScreenUtilsManager.r20),
     ),
     child: Row(

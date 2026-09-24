@@ -240,7 +240,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
           final buttonColor = isEnabled
               ? (isDark ? context.palette.kPrimary : context.palette.kPrimary)
               : (isDark
-                    ? context.palette.outline.withOpacity(0.3)
+                    ? context.palette.outline.withValues(alpha: 0.3)
                     : context.palette.lightGrey);
 
           return AnimatedContainer(
@@ -250,7 +250,7 @@ class _CreatePasswordScreenState extends State<CreatePasswordScreen> {
               boxShadow: isEnabled && !isDark
                   ? [
                       BoxShadow(
-                        color: context.palette.kPrimary.withOpacity(0.3),
+                        color: context.palette.kPrimary.withValues(alpha: 0.3),
                         blurRadius: 8,
                         offset: const Offset(0, 4),
                       ),

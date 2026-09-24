@@ -32,7 +32,7 @@ class WorkerCard extends StatelessWidget {
         color: context.palette.surface,
         borderRadius: BorderRadius.circular(ScreenUtilsManager.r24),
         border: Border.all(
-          color: context.palette.outline.withOpacity(0.15),
+          color: context.palette.outline.withValues(alpha: 0.15),
         ),
         boxShadow: [
           BoxShadow(
@@ -141,9 +141,9 @@ class WorkerCard extends StatelessWidget {
         vertical: ScreenUtilsManager.h2,
       ),
       decoration: BoxDecoration(
-        color: badgeColor.withOpacity(0.1),
+        color: badgeColor.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(ScreenUtilsManager.r20),
-        border: Border.all(color: badgeColor.withOpacity(0.2)),
+        border: Border.all(color: badgeColor.withValues(alpha: 0.2)),
       ),
       child: Text(
         isVerified ? S.of(context).verified : S.of(context).pending,
@@ -167,7 +167,7 @@ class WorkerCard extends StatelessWidget {
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: context.palette.success.withOpacity(0.4),
+                color: context.palette.success.withValues(alpha: 0.4),
                 blurRadius: ScreenUtilsManager.s4,
               ),
             ],
@@ -195,13 +195,13 @@ class WorkerCard extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               context.palette.workerprimary,
-              context.palette.workerprimary.withOpacity(0.8),
+              context.palette.workerprimary.withValues(alpha: 0.8),
             ],
           ),
           borderRadius: BorderRadius.circular(ScreenUtilsManager.r12),
           boxShadow: [
             BoxShadow(
-              color: context.palette.workerprimary.withOpacity(0.25),
+              color: context.palette.workerprimary.withValues(alpha: 0.25),
               blurRadius: ScreenUtilsManager.s12,
               offset: Offset(0, ScreenUtilsManager.h4),
             ),

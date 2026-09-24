@@ -37,7 +37,7 @@ class ProfileMenuItem extends StatelessWidget {
                 ? null
                 : [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.04),
+                      color: Colors.black.withValues(alpha: 0.04),
                       offset: const Offset(0, 2),
                       blurRadius: 8,
                     ),
@@ -45,7 +45,7 @@ class ProfileMenuItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(ScreenUtilsManager.r12),
             border: Border.all(
               color: isDark
-                  ? context.palette.outline.withOpacity(0.3)
+                  ? context.palette.outline.withValues(alpha: 0.3)
                   : context.palette.lightGrey4,
               width: isDark ? 0.5.w : 1.w,
             ),
@@ -58,14 +58,14 @@ class ProfileMenuItem extends StatelessWidget {
               onTap: onTap,
               borderRadius: BorderRadius.circular(ScreenUtilsManager.r12),
               highlightColor: isDestructive
-                  ? context.palette.error.withOpacity(0.1)
+                  ? context.palette.error.withValues(alpha: 0.1)
                   : (isDark
-                        ? context.palette.lightBlue.withOpacity(0.1)
+                        ? context.palette.lightBlue.withValues(alpha: 0.1)
                         : Colors.transparent),
               splashColor: isDestructive
-                  ? context.palette.error.withOpacity(0.05)
+                  ? context.palette.error.withValues(alpha: 0.05)
                   : (isDark
-                        ? context.palette.lightBlue.withOpacity(0.05)
+                        ? context.palette.lightBlue.withValues(alpha: 0.05)
                         : Colors.transparent),
               child: Padding(
                 padding: EdgeInsets.symmetric(
@@ -129,7 +129,7 @@ class ProfileMenuItem extends StatelessWidget {
                       height: ScreenUtilsManager.w32,
                       decoration: BoxDecoration(
                         color: isDark
-                            ? Colors.white.withOpacity(0.05)
+                            ? Colors.white.withValues(alpha: 0.05)
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(
                           ScreenUtilsManager.r8,

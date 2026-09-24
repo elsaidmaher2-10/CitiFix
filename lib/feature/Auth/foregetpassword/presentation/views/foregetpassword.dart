@@ -97,7 +97,7 @@ class _ForegetpasswordState extends State<Foregetpassword> {
                         child: Icon(
                           Icons.lock_reset_rounded,
                           size: 80.r,
-                          color: context.palette.kPrimary.withOpacity(0.8),
+                          color: context.palette.kPrimary.withValues(alpha: 0.8),
                         ),
                       ),
 

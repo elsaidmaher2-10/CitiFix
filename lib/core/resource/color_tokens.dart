@@ -13,7 +13,7 @@ class ColorManger {
   static const Color notificationRedEnd = Color(0xffFF1744);
   static Color get grey300 => Colors.grey.shade300;
   static Color get primaryOpacity20 =>
-      ColorManger.workerprimary.withOpacity(0.2);
+      ColorManger.workerprimary.withValues(alpha: 0.2);
   static const Color black87 = Colors.black87;
   static const Color completedButton = Color(0xFFFF8A00);
   static const Color black54 = Colors.black54;

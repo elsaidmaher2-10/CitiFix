@@ -44,7 +44,7 @@ class CustomSearchField extends StatelessWidget {
         fillColor: context.palette.surfaceContainerHigh,
         filled: true,
         hintStyle: GoogleFonts.cairo(
-          color: context.palette.onSurfaceVariant.withOpacity(0.6),
+          color: context.palette.onSurfaceVariant.withValues(alpha: 0.6),
           fontSize: ScreenUtilsManager.s14,
         ),
         contentPadding: EdgeInsets.symmetric(

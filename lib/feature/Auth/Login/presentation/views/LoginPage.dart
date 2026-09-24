@@ -64,6 +64,7 @@ class _LoginpageState extends State<Loginpage> {
     super.dispose();
   }
 
+  @override
   void initState() {
     super.initState();
     _checkForUpdates();
@@ -154,6 +155,7 @@ class _LoginpageState extends State<Loginpage> {
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginmangerCubit(),

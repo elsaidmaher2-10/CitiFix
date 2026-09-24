@@ -18,7 +18,7 @@ class Profilesettings extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final iconColor = isDark
-        ? context.palette.lightBlue.withOpacity(0.9)
+        ? context.palette.lightBlue.withValues(alpha: 0.9)
         : context.palette.lightBlue;
 
     return Padding(
@@ -51,7 +51,7 @@ class Profilesettings extends StatelessWidget {
           style: GoogleFonts.cairo(
             letterSpacing: 1.6,
             color: isDark
-                ? context.palette.onSurface.withOpacity(0.8)
+                ? context.palette.onSurface.withValues(alpha: 0.8)
                 : context.palette.onSurfaceVariant,
             fontWeight: FontWeight.w600,
             fontSize: ScreenUtilsManager.s14,
@@ -65,8 +65,8 @@ class Profilesettings extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: isDark
-                ? context.palette.outline.withOpacity(0.2)
-                : context.palette.lightGrey4.withOpacity(0.5),
+                ? context.palette.outline.withValues(alpha: 0.2)
+                : context.palette.lightGrey4.withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(ScreenUtilsManager.r12),
           ),
           child: Text(
@@ -75,7 +75,7 @@ class Profilesettings extends StatelessWidget {
               fontSize: ScreenUtilsManager.s10,
               fontWeight: FontWeight.w500,
               color: isDark
-                  ? context.palette.onSurface.withOpacity(0.6)
+                  ? context.palette.onSurface.withValues(alpha: 0.6)
                   : context.palette.onSurfaceVariant,
             ),
           ),
@@ -105,8 +105,8 @@ class Profilesettings extends StatelessWidget {
         height: 1,
         thickness: 0.5,
         color: isDark
-            ? context.palette.outline.withOpacity(0.2)
-            : context.palette.lightGrey4.withOpacity(0.5),
+            ? context.palette.outline.withValues(alpha: 0.2)
+            : context.palette.lightGrey4.withValues(alpha: 0.5),
       ),
     );
   }

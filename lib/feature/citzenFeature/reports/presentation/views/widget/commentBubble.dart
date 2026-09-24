@@ -69,7 +69,7 @@ class CommentBubble extends StatelessWidget {
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.02),
+                            color: Colors.black.withValues(alpha: 0.02),
                             blurRadius: 8,
                             offset: const Offset(0, 4),
                           ),
@@ -113,7 +113,7 @@ class CommentBubble extends StatelessWidget {
         comment.createdAt.timeAgo(context),
         style: GoogleFonts.cairo(
           fontSize: ScreenUtilsManager.s10,
-          color: context.palette.onSurfaceVariant.withOpacity(0.5),
+          color: context.palette.onSurfaceVariant.withValues(alpha: 0.5),
           fontWeight: FontWeight.w700,
         ),
       ),
@@ -135,7 +135,7 @@ class CommentBubble extends StatelessWidget {
         ),
         child: CircleAvatar(
           radius: ScreenUtilsManager.r14,
-          backgroundColor: color.withOpacity(0.1),
+          backgroundColor: color.withValues(alpha: 0.1),
           child: ClipOval(
             child: CachedNetworkImage(
               placeholder: (context, url) =>

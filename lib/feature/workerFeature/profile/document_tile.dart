@@ -72,7 +72,7 @@ class DocumentTile extends StatelessWidget {
           color: context.palette.surfaceLowest,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: context.palette.outline.withOpacity(0.1),
+            color: context.palette.outline.withValues(alpha: 0.1),
             width: 1,
           ),
         ),
@@ -104,7 +104,7 @@ class DocumentTile extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color: statusColor.withOpacity(0.1),
+                color: statusColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(

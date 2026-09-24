@@ -56,7 +56,7 @@ class PasswordField extends StatelessWidget {
                           fontSize: ScreenUtilsManager.s14,
                           fontWeight: FontWeight.w600,
                           color: isDark
-                              ? context.palette.onSurface.withOpacity(0.9)
+                              ? context.palette.onSurface.withValues(alpha: 0.9)
                               : context.palette.onSurfaceVariant,
                         ),
                       ),
@@ -93,7 +93,7 @@ class PasswordField extends StatelessWidget {
                 prefix: Icon(
                   isNew ? Icons.lock_outline : Icons.password_outlined,
                   color: isDark
-                      ? primaryColor.withOpacity(0.7)
+                      ? primaryColor.withValues(alpha: 0.7)
                       : context.palette.lightGrey2,
                   size: ScreenUtilsManager.s20,
                 ),
@@ -104,7 +104,7 @@ class PasswordField extends StatelessWidget {
                   icon: Icon(
                     isHidden ? Icons.visibility_off : Icons.visibility,
                     color: isDark
-                        ? context.palette.onSurfaceVariant.withOpacity(0.7)
+                        ? context.palette.onSurfaceVariant.withValues(alpha: 0.7)
                         : context.palette.lightGrey2,
                     size: ScreenUtilsManager.s20,
                   ),

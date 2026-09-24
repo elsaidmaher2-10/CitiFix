@@ -98,7 +98,7 @@ class Editfromprofile extends StatelessWidget {
             style: GoogleFonts.cairo(
               fontSize: ScreenUtilsManager.s15,
               fontWeight: FontWeight.w700,
-              color: context.palette.onSurface.withOpacity(isDark ? 0.9 : 0.8),
+              color: context.palette.onSurface.withValues(alpha: isDark ? 0.9 : 0.8),
             ),
           ),
         ),
@@ -110,7 +110,7 @@ class Editfromprofile extends StatelessWidget {
                 ? null
                 : [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.02),
+                      color: Colors.black.withValues(alpha: 0.02),
                       blurRadius: 10,
                       offset: const Offset(0, 4),
                     ),
@@ -128,13 +128,13 @@ class Editfromprofile extends StatelessWidget {
             decoration: InputDecoration(
               prefixIcon: Icon(
                 icon,
-                color: themeColor.withOpacity(isDark ? 0.8 : 0.7),
+                color: themeColor.withValues(alpha: isDark ? 0.8 : 0.7),
                 size: ScreenUtilsManager.s22,
               ),
               hintText: hint,
               hintStyle: GoogleFonts.cairo(
                 fontSize: ScreenUtilsManager.s14,
-                color: context.palette.onSurfaceVariant.withOpacity(0.5),
+                color: context.palette.onSurfaceVariant.withValues(alpha: 0.5),
               ),
               filled: true,
               fillColor: context.palette.surfaceLowest,
@@ -145,7 +145,7 @@ class Editfromprofile extends StatelessWidget {
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(ScreenUtilsManager.r16),
                 borderSide: BorderSide(
-                  color: context.palette.outline.withOpacity(isDark ? 0.15 : 0.1),
+                  color: context.palette.outline.withValues(alpha: isDark ? 0.15 : 0.1),
                   width: 1.5,
                 ),
               ),
@@ -156,7 +156,7 @@ class Editfromprofile extends StatelessWidget {
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(ScreenUtilsManager.r16),
                 borderSide: BorderSide(
-                  color: context.palette.error.withOpacity(0.7),
+                  color: context.palette.error.withValues(alpha: 0.7),
                   width: 1.5,
                 ),
               ),

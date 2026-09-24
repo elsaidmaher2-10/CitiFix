@@ -12,8 +12,8 @@ class WorkerAlertVrefication extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(ScreenUtilsManager.h16),
       decoration: BoxDecoration(
-        color: context.palette.orange.withOpacity(0.08),
-        border: Border.all(color: context.palette.orange.withOpacity(0.15)),
+        color: context.palette.orange.withValues(alpha: 0.08),
+        border: Border.all(color: context.palette.orange.withValues(alpha: 0.15)),
         borderRadius: BorderRadius.circular(ScreenUtilsManager.r16),
       ),
       child: Row(
@@ -21,7 +21,7 @@ class WorkerAlertVrefication extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(ScreenUtilsManager.w10),
             decoration: BoxDecoration(
-              color: context.palette.orange.withOpacity(0.12),
+              color: context.palette.orange.withValues(alpha: 0.12),
               shape: BoxShape.circle,
             ),
             child: Icon(
@@ -49,7 +49,7 @@ class WorkerAlertVrefication extends StatelessWidget {
                   style: GoogleFonts.cairo(
                     fontSize: ScreenUtilsManager.s13,
                     fontWeight: FontWeight.w600,
-                    color: context.palette.onSurfaceVariant.withOpacity(0.9),
+                    color: context.palette.onSurfaceVariant.withValues(alpha: 0.9),
                   ),
                 ),
               ],

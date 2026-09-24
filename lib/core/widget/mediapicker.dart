@@ -122,7 +122,7 @@ class _PickerBottomSheetState extends State<PickerBottomSheet> {
               Divider(
                 height: 1,
                 thickness: 1,
-                color: palette.outline.withOpacity(0.2),
+                color: palette.outline.withValues(alpha: 0.2),
               ),
               _GalleryHeader(
                 selectedCount: _selectedAssets.length,
@@ -159,7 +159,7 @@ class _DragHandle extends StatelessWidget {
       width: 40,
       height: 4,
       decoration: BoxDecoration(
-        color: context.palette.outline.withOpacity(0.4),
+        color: context.palette.outline.withValues(alpha: 0.4),
         borderRadius: BorderRadius.circular(2),
       ),
     );
@@ -220,7 +220,7 @@ class _CameraButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: palette.surfaceContainerHigh,
           borderRadius: BorderRadius.circular(14),
-          border: Border.all(color: palette.outline.withOpacity(0.18)),
+          border: Border.all(color: palette.outline.withValues(alpha: 0.18)),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
@@ -376,7 +376,7 @@ class _SelectedStrip extends StatelessWidget {
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemCount: selectedAssets.length,
-          separatorBuilder: (_, __) => const SizedBox(width: 6),
+          separatorBuilder: (_, _) => const SizedBox(width: 6),
           itemBuilder: (context, i) {
             final asset = selectedAssets[i];
             return GestureDetector(
@@ -445,7 +445,7 @@ class _GalleryTile extends StatelessWidget {
             asset,
             isOriginal: false,
             fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) => Container(
+            errorBuilder: (_, _, _) => Container(
               color: palette.surfaceContainerLow,
               child: Icon(
                 Icons.broken_image,
@@ -455,7 +455,7 @@ class _GalleryTile extends StatelessWidget {
             ),
           ),
 
-          if (isSelected) Container(color: palette.kPrimary.withOpacity(0.28)),
+          if (isSelected) Container(color: palette.kPrimary.withValues(alpha: 0.28)),
 
           if (asset.type == AssetType.video)
             Positioned(

@@ -30,7 +30,7 @@ class ProfileHeader extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withValues(alpha: 0.03),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -66,7 +66,7 @@ class ProfileHeader extends StatelessWidget {
             style: GoogleFonts.cairo(
               fontSize: ScreenUtilsManager.s14,
               fontWeight: FontWeight.w500,
-              color: context.palette.onSurfaceVariant.withOpacity(0.7),
+              color: context.palette.onSurfaceVariant.withValues(alpha: 0.7),
             ),
           ),
           SizedBox(height: ScreenUtilsManager.h16),
@@ -74,10 +74,10 @@ class ProfileHeader extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
               decoration: BoxDecoration(
-                color: context.palette.workerprimary.withOpacity(0.1),
+                color: context.palette.workerprimary.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: context.palette.workerprimary.withOpacity(0.2),
+                  color: context.palette.workerprimary.withValues(alpha: 0.2),
                 ),
               ),
               child: Row(
@@ -121,7 +121,7 @@ class _Avatar extends StatelessWidget {
         shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: Colors.black.withValues(alpha: 0.08),
             blurRadius: 15,
             offset: const Offset(0, 5),
           ),

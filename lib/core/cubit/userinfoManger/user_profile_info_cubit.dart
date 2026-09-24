@@ -65,7 +65,6 @@ class UserProfileInfoCubit extends Cubit<UserProfileInfoState> {
     } else if (state is UserProfileImageUpdatedSuccess) {
       currentUser = (state as UserProfileImageUpdatedSuccess).user;
     }
-    if (currentUser == null) return;
     emit(UserProfileImageLoading(currentUser));
     final result = await userprofilerepos.updateuserImage(image);
     if (isClosed) return;

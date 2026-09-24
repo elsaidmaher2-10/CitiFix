@@ -266,13 +266,13 @@ class _ReportDetailsScreenState extends State<AchivementReportDetails> {
       padding: EdgeInsets.all(12.w),
       decoration: BoxDecoration(
         color: isWorker
-            ? context.palette.kPrimary.withOpacity(0.12)
+            ? context.palette.kPrimary.withValues(alpha: 0.12)
             : context.palette.surfaceContainerLow,
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
           color: isWorker
-              ? context.palette.kPrimary.withOpacity(0.28)
-              : context.palette.outline.withOpacity(0.45),
+              ? context.palette.kPrimary.withValues(alpha: 0.28)
+              : context.palette.outline.withValues(alpha: 0.45),
         ),
       ),
       child: Row(
@@ -281,7 +281,7 @@ class _ReportDetailsScreenState extends State<AchivementReportDetails> {
             onTap: () => showFullScreenImage(context, imageUrl),
             child: CircleAvatar(
               radius: 20.r,
-              backgroundColor: context.palette.kPrimary.withOpacity(0.15),
+              backgroundColor: context.palette.kPrimary.withValues(alpha: 0.15),
               child: ClipOval(
                 child: CachedNetworkImage(
                   imageUrl: imageUrl,
@@ -437,7 +437,7 @@ class _ReportDetailsScreenState extends State<AchivementReportDetails> {
         color: context.palette.surfaceContainerLow,
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
-          color: context.palette.outline.withOpacity(0.45),
+          color: context.palette.outline.withValues(alpha: 0.45),
         ),
       ),
       child: Text(

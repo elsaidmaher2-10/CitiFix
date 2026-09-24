@@ -16,7 +16,7 @@ Widget buildWorkerCard(
         color: context.palette.surface,
         borderRadius: BorderRadius.circular(ScreenUtilsManager.r20),
         border: Border.all(
-          color: context.palette.outline.withOpacity(0.15),
+          color: context.palette.outline.withValues(alpha: 0.15),
         ),
         boxShadow: [
           BoxShadow(
@@ -33,7 +33,7 @@ Widget buildWorkerCard(
             Container(
               padding: EdgeInsets.all(ScreenUtilsManager.w10),
               decoration: BoxDecoration(
-                color: context.palette.workerprimary.withOpacity(0.12),
+                color: context.palette.workerprimary.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(ScreenUtilsManager.r12),
               ),
               child: Icon(

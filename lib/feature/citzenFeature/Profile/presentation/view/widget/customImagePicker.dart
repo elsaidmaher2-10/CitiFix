@@ -47,7 +47,7 @@ class Customimagepicker extends StatelessWidget {
               width: 40,
               height: 4,
               decoration: BoxDecoration(
-                color: context.palette.outline.withOpacity(0.3),
+                color: context.palette.outline.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(2),
               ),
             ),
@@ -159,7 +159,7 @@ class Customimagepicker extends StatelessWidget {
                           : context.palette.kineticGradient,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.08),
+                          color: Colors.black.withValues(alpha: 0.08),
                           blurRadius: 20,
                           offset: const Offset(0, 8),
                         ),
@@ -185,7 +185,7 @@ class Customimagepicker extends StatelessWidget {
                     width: (ScreenUtilsManager.r64 * 2) + 8,
                     height: (ScreenUtilsManager.r64 * 2) + 8,
                     decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.4),
+                      color: Colors.black.withValues(alpha: 0.4),
                       shape: BoxShape.circle,
                     ),
                     child: Center(
@@ -213,7 +213,7 @@ class Customimagepicker extends StatelessWidget {
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
+                            color: Colors.black.withValues(alpha: 0.1),
                             blurRadius: 8,
                             offset: const Offset(0, 4),
                           ),
@@ -262,7 +262,7 @@ class _SourceOption extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
-                color: context.palette.outline.withOpacity(0.1),
+                color: context.palette.outline.withValues(alpha: 0.1),
                 width: 1.5,
               ),
             ),
@@ -271,7 +271,7 @@ class _SourceOption extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(ScreenUtilsManager.h12),
                   decoration: BoxDecoration(
-                    color: color.withOpacity(0.1),
+                    color: color.withValues(alpha: 0.1),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(icon, color: color, size: ScreenUtilsManager.s28),

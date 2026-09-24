@@ -93,7 +93,7 @@ class _WorkerDashboardState extends State<WorkerDashboard>
             color: context.palette.surface,
             borderRadius: BorderRadius.circular(ScreenUtilsManager.r20),
             border: Border.all(
-              color: context.palette.outline.withOpacity(0.15),
+              color: context.palette.outline.withValues(alpha: 0.15),
             ),
             boxShadow: [
               BoxShadow(
@@ -148,7 +148,7 @@ class _WorkerDashboardState extends State<WorkerDashboard>
                     style: GoogleFonts.cairo(
                       fontSize: ScreenUtilsManager.s12,
                       fontWeight: FontWeight.w700,
-                      color: context.palette.onSurfaceVariant.withOpacity(0.8),
+                      color: context.palette.onSurfaceVariant.withValues(alpha: 0.8),
                     ),
                   ),
                   AnimatedBuilder(
@@ -185,13 +185,13 @@ class _WorkerDashboardState extends State<WorkerDashboard>
                               gradient: LinearGradient(
                                 colors: [
                                   context.palette.workerprimary,
-                                  context.palette.workerprimary.withOpacity(0.7),
+                                  context.palette.workerprimary.withValues(alpha: 0.7),
                                 ],
                               ),
                               borderRadius: BorderRadius.circular(ScreenUtilsManager.r10),
                               boxShadow: [
                                 BoxShadow(
-                                  color: context.palette.workerprimary.withOpacity(0.3),
+                                  color: context.palette.workerprimary.withValues(alpha: 0.3),
                                   blurRadius: ScreenUtilsManager.s6,
                                   offset: Offset(0, ScreenUtilsManager.h2),
                                 ),
@@ -216,9 +216,9 @@ class _WorkerDashboardState extends State<WorkerDashboard>
         vertical: ScreenUtilsManager.h8,
       ),
       decoration: BoxDecoration(
-        color: context.palette.success.withOpacity(0.12),
+        color: context.palette.success.withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(ScreenUtilsManager.r16),
-        border: Border.all(color: context.palette.success.withOpacity(0.2)),
+        border: Border.all(color: context.palette.success.withValues(alpha: 0.2)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

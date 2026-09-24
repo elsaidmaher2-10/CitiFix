@@ -249,7 +249,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         style: GoogleFonts.cairo(
           fontSize: ScreenUtilsManager.s12,
           color: isDark
-              ? context.palette.onSurfaceVariant.withOpacity(0.7)
+              ? context.palette.onSurfaceVariant.withValues(alpha: 0.7)
               : const Color(0xFF94A3B8),
           height: 1.5,
         ),

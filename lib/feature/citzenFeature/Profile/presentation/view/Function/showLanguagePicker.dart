@@ -75,7 +75,7 @@ Widget _buildLanguageOption(
       decoration: BoxDecoration(
         border: Border.all(
           width: ScreenUtilsManager.w1,
-          color: context.palette.lightGrey2.withOpacity(0.5),
+          color: context.palette.lightGrey2.withValues(alpha: 0.5),
         ),
         borderRadius: BorderRadius.circular(ScreenUtilsManager.r8),
       ),

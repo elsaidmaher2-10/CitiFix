@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(ScreenUtilsManager.w20),
               decoration: BoxDecoration(
-                color: context.palette.error.withOpacity(0.1),
+                color: context.palette.error.withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(
@@ -186,7 +186,7 @@ Widget _buildHeaderSection(String name, BuildContext context) {
           vertical: ScreenUtilsManager.h4,
         ),
         decoration: BoxDecoration(
-          color: context.palette.workerprimary.withOpacity(0.1),
+          color: context.palette.workerprimary.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(ScreenUtilsManager.r8),
         ),
         child: Text(
@@ -233,7 +233,7 @@ Widget _buildEmptyTasksMessage(BuildContext context) {
     decoration: BoxDecoration(
       color: context.palette.surface,
       borderRadius: BorderRadius.circular(ScreenUtilsManager.r24),
-      border: Border.all(color: context.palette.outline.withOpacity(0.1)),
+      border: Border.all(color: context.palette.outline.withValues(alpha: 0.1)),
       boxShadow: [
         BoxShadow(
           color: context.palette.shadow,
@@ -246,13 +246,13 @@ Widget _buildEmptyTasksMessage(BuildContext context) {
         Container(
           padding: EdgeInsets.all(ScreenUtilsManager.w20),
           decoration: BoxDecoration(
-            color: context.palette.workerprimary.withOpacity(0.08),
+            color: context.palette.workerprimary.withValues(alpha: 0.08),
             shape: BoxShape.circle,
           ),
           child: Icon(
             Icons.assignment_turned_in_rounded,
             size: ScreenUtilsManager.s48,
-            color: context.palette.workerprimary.withOpacity(0.4),
+            color: context.palette.workerprimary.withValues(alpha: 0.4),
           ),
         ),
         SizedBox(height: ScreenUtilsManager.h20),
@@ -272,7 +272,7 @@ Widget _buildEmptyTasksMessage(BuildContext context) {
           style: GoogleFonts.cairo(
             fontSize: ScreenUtilsManager.s14,
             fontWeight: FontWeight.w600,
-            color: context.palette.onSurfaceVariant.withOpacity(0.7),
+            color: context.palette.onSurfaceVariant.withValues(alpha: 0.7),
           ),
         ),
       ],

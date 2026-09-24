@@ -208,7 +208,7 @@ class MarkAsCompletedButton extends StatelessWidget {
         backgroundColor: context.palette.completedButton,
         foregroundColor: context.palette.white,
         elevation: ScreenUtilsManager.s4,
-        shadowColor: context.palette.completedButton.withOpacity(0.4),
+        shadowColor: context.palette.completedButton.withValues(alpha: 0.4),
         minimumSize: Size(double.infinity, ScreenUtilsManager.h56),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(ScreenUtilsManager.r12),

@@ -28,7 +28,7 @@ Future<List<File>?> showImageBottomSheet(BuildContext context) async {
               height: 4.h,
               width: 40.w,
               decoration: BoxDecoration(
-                color: context.palette.white.withOpacity(0.3),
+                color: context.palette.white.withValues(alpha: 0.3),
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
@@ -44,7 +44,7 @@ Future<List<File>?> showImageBottomSheet(BuildContext context) async {
             },
           ),
 
-          Divider(height: 1, color: context.palette.white.withOpacity(0.1)),
+          Divider(height: 1, color: context.palette.white.withValues(alpha: 0.1)),
 
           _buildSheetButton(
             context: context,
@@ -92,7 +92,7 @@ Widget _buildSheetButton({
           ),
           Icon(
             Icons.arrow_forward_ios,
-            color: context.palette.white.withOpacity(0.5),
+            color: context.palette.white.withValues(alpha: 0.5),
             size: 14.sp,
           ),
         ],

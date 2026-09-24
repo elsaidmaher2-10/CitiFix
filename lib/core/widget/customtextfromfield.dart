@@ -58,7 +58,7 @@ class CustomTextfromfield extends StatelessWidget {
 
     // Border colors for different states
     final enabledBorderColor = isDark
-        ? scheme.outline.withOpacity(0.3)
+        ? scheme.outline.withValues(alpha: 0.3)
         : Colors.grey.shade300;
 
     final focusedBorderColor = isworker ? scheme.primary : scheme.primary;
@@ -122,8 +122,8 @@ class CustomTextfromfield extends StatelessWidget {
         hintText: hinttext,
         hintStyle: GoogleFonts.cairo(
           color: isDark
-              ? scheme.onSurfaceVariant.withOpacity(0.6)
-              : scheme.onSurfaceVariant.withOpacity(0.7),
+              ? scheme.onSurfaceVariant.withValues(alpha: 0.6)
+              : scheme.onSurfaceVariant.withValues(alpha: 0.7),
           fontSize: 13.sp,
         ),
         enabledBorder: OutlineInputBorder(
@@ -140,7 +140,7 @@ class CustomTextfromfield extends StatelessWidget {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
           borderSide: BorderSide(
-            color: errorBorderColor.withOpacity(0.5),
+            color: errorBorderColor.withValues(alpha: 0.5),
             width: 1,
           ),
         ),

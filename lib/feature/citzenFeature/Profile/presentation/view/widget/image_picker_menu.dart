@@ -89,7 +89,7 @@ class ImagePickerMenu {
         vertical: ScreenUtilsManager.h4,
       ),
       decoration: BoxDecoration(
-        color: isDark ? context.palette.outline.withOpacity(0.1) : context.palette.lightGrey5,
+        color: isDark ? context.palette.outline.withValues(alpha: 0.1) : context.palette.lightGrey5,
         borderRadius: BorderRadius.circular(ScreenUtilsManager.r12),
       ),
       child: ListTile(
@@ -98,7 +98,7 @@ class ImagePickerMenu {
             ? CircleAvatar(
                 radius: ScreenUtilsManager.r18,
                 backgroundColor:
-                    iconBgColor ?? (isDark ? context.palette.primary.withOpacity(0.2) : context.palette.lightBlue.withOpacity(0.5)),
+                    iconBgColor ?? (isDark ? context.palette.primary.withValues(alpha: 0.2) : context.palette.lightBlue.withValues(alpha: 0.5)),
                 child: Icon(
                   icon,
                   color: iconColor ?? (isDark ? context.palette.white : context.palette.white),

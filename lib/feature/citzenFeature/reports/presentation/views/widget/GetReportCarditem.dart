@@ -52,7 +52,7 @@ class ReportCardIem extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(Theme.of(context).brightness == Brightness.dark ? 0.2 : 0.08),
+              color: Colors.black.withValues(alpha: Theme.of(context).brightness == Brightness.dark ? 0.2 : 0.08),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -107,7 +107,7 @@ class ReportCardIem extends StatelessWidget {
                           '${S.of(context).submitted} ${report.createdAt.timeAgo(context)}',
                           style: GoogleFonts.cairo(
                             fontSize: ScreenUtilsManager.s11,
-                            color: context.palette.onSurfaceVariant.withOpacity(0.8),
+                            color: context.palette.onSurfaceVariant.withValues(alpha: 0.8),
                           ),
                         ),
                       ],
@@ -141,7 +141,7 @@ class ReportCardIem extends StatelessWidget {
                 color: context.palette.surfaceContainerLow,
                 border: Border(
                   top: BorderSide(
-                    color: context.palette.outline.withOpacity(0.15),
+                    color: context.palette.outline.withValues(alpha: 0.15),
                   ),
                 ),
               ),
@@ -157,7 +157,7 @@ class ReportCardIem extends StatelessWidget {
                     ),
                   ),
                   Material(
-                    color: context.palette.kPrimary.withOpacity(0.1),
+                    color: context.palette.kPrimary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(ScreenUtilsManager.r8),
                     child: InkWell(
                       onTap: () async {

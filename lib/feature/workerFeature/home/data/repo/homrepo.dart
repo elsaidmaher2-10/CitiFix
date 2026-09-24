@@ -9,7 +9,6 @@ import 'package:citifix/core/resource/constantmanger.dart';
 import 'package:citifix/core/service/networkchecker.dart';
 import 'package:citifix/feature/workerFeature/home/data/models/dashbroadmodel.dart';
 import 'package:dartz/dartz.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Homreposatory {
   final Apiservice service;

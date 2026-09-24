@@ -145,7 +145,7 @@ class _CustomMapSectionState extends State<CustomMapSection> {
                             polygons: [
                               Polygon(
                                 points: widget.zonemLevel,
-                                color: context.palette.workerprimary.withOpacity(0.12),
+                                color: context.palette.workerprimary.withValues(alpha: 0.12),
                                 borderColor: context.palette.workerprimary,
                                 borderStrokeWidth: ScreenUtilsManager.s2,
                               ),
@@ -191,7 +191,7 @@ class _CustomMapSectionState extends State<CustomMapSection> {
                           gradient: LinearGradient(
                             colors: [
                               context.palette.workerprimary,
-                              context.palette.workerprimary.withOpacity(0.8),
+                              context.palette.workerprimary.withValues(alpha: 0.8),
                             ],
                           ),
                           borderRadius: BorderRadius.circular(
@@ -199,7 +199,7 @@ class _CustomMapSectionState extends State<CustomMapSection> {
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: context.palette.workerprimary.withOpacity(0.3),
+                              color: context.palette.workerprimary.withValues(alpha: 0.3),
                               blurRadius: ScreenUtilsManager.s12,
                               offset: const Offset(0, 4),
                             ),
@@ -214,7 +214,7 @@ class _CustomMapSectionState extends State<CustomMapSection> {
                                 Text(
                                   S.of(context).distance_to_task.toUpperCase(),
                                   style: GoogleFonts.cairo(
-                                    color: Colors.white.withOpacity(0.8),
+                                    color: Colors.white.withValues(alpha: 0.8),
                                     fontSize: ScreenUtilsManager.s10,
                                     fontWeight: FontWeight.w800,
                                     letterSpacing: 1,
@@ -233,7 +233,7 @@ class _CustomMapSectionState extends State<CustomMapSection> {
                             Container(
                               padding: EdgeInsets.all(ScreenUtilsManager.w8),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withValues(alpha: 0.2),
                                 shape: BoxShape.circle,
                               ),
                               child: Icon(
@@ -298,7 +298,7 @@ class _CustomMapSectionState extends State<CustomMapSection> {
                     Container(
                       padding: EdgeInsets.all(ScreenUtilsManager.w12),
                       decoration: BoxDecoration(
-                        color: context.palette.workerprimary.withOpacity(0.12),
+                        color: context.palette.workerprimary.withValues(alpha: 0.12),
                         borderRadius: BorderRadius.circular(ScreenUtilsManager.r16),
                       ),
                       child: Icon(
@@ -331,7 +331,7 @@ class _CustomMapSectionState extends State<CustomMapSection> {
                             style: GoogleFonts.cairo(
                               fontSize: ScreenUtilsManager.s14,
                               fontWeight: FontWeight.w600,
-                              color: context.palette.onSurfaceVariant.withOpacity(0.7),
+                              color: context.palette.onSurfaceVariant.withValues(alpha: 0.7),
                             ),
                           ),
                         ],
@@ -364,7 +364,7 @@ class _MapButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: context.palette.surface,
           borderRadius: BorderRadius.circular(ScreenUtilsManager.r12),
-          border: Border.all(color: context.palette.outline.withOpacity(0.1)),
+          border: Border.all(color: context.palette.outline.withValues(alpha: 0.1)),
           boxShadow: [
             BoxShadow(
               color: context.palette.shadow,

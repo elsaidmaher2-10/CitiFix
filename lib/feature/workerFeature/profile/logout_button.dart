@@ -31,7 +31,7 @@ class LogoutButton extends StatelessWidget {
           side: BorderSide.none,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           foregroundColor: context.palette.error,
-          disabledForegroundColor: context.palette.error.withOpacity(0.5),
+          disabledForegroundColor: context.palette.error.withValues(alpha: 0.5),
         ),
         child: isLoading
             ? SizedBox(

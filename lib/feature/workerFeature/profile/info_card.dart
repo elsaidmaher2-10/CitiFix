@@ -24,7 +24,7 @@ class InfoCard extends StatelessWidget {
         color: context.palette.surfaceLowest,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: context.palette.outline.withOpacity(0.1),
+          color: context.palette.outline.withValues(alpha: 0.1),
           width: 1,
         ),
       ),
@@ -36,7 +36,7 @@ class InfoCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: context.palette.workerprimary.withOpacity(0.1),
+                  color: context.palette.workerprimary.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(icon, color: context.palette.workerprimary, size: 20),
@@ -78,7 +78,7 @@ class InfoField extends StatelessWidget {
             style: GoogleFonts.cairo(
               fontSize: 10,
               fontWeight: FontWeight.w700,
-              color: context.palette.onSurfaceVariant.withOpacity(0.6),
+              color: context.palette.onSurfaceVariant.withValues(alpha: 0.6),
               letterSpacing: 1.2,
             ),
           ),
@@ -92,7 +92,7 @@ class InfoField extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Divider(color: context.palette.outline.withOpacity(0.05), height: 1),
+          Divider(color: context.palette.outline.withValues(alpha: 0.05), height: 1),
         ],
       ),
     );

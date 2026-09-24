@@ -137,8 +137,9 @@ class MapControllerCubit extends Cubit<MapControllerState> {
       if (response.routes.isEmpty) return [];
 
       final geometry = response.routes.first.geometry;
-      if (geometry == null || geometry.lineString?.coordinates == null)
+      if (geometry == null || geometry.lineString?.coordinates == null) {
         return [];
+      }
 
       final coords = geometry.lineString!.coordinates;
       return coords.map<LatLng>((e) => LatLng(e.$2, e.$1)).toList();

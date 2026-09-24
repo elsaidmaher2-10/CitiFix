@@ -92,7 +92,7 @@ class _ReportsPageState extends State<ReportsPage> {
         elevation: 0,
         shape: Border(
           bottom: BorderSide(
-            color: context.palette.outline.withOpacity(isDark ? 0.1 : 0.05),
+            color: context.palette.outline.withValues(alpha: isDark ? 0.1 : 0.05),
             width: 1,
           ),
         ),
@@ -168,7 +168,7 @@ class _ReportsPageState extends State<ReportsPage> {
                     side: BorderSide(
                       color: isSelected
                           ? Colors.transparent
-                          : context.palette.outline.withOpacity(0.3),
+                          : context.palette.outline.withValues(alpha: 0.3),
                     ),
                   ),
                 );

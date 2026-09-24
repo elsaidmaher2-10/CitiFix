@@ -77,7 +77,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
                       color: Theme.of(context).brightness == Brightness.dark
-                          ? Theme.of(context).colorScheme.outline.withOpacity(0.3)
+                          ? Theme.of(context).colorScheme.outline.withValues(alpha: 0.3)
                           : Colors.grey.shade300,
                       width: Theme.of(context).brightness == Brightness.dark ? 0.5 : 1,
                     ),
@@ -93,7 +93,7 @@ class _CategoryDropdownState extends State<CategoryDropdown> {
                               ? FontWeight.normal
                               : FontWeight.w500,
                           color: selectedItem == null
-                              ? context.palette.onSurfaceVariant.withOpacity(0.6)
+                              ? context.palette.onSurfaceVariant.withValues(alpha: 0.6)
                               : context.palette.onSurface,
                         ),
                       ),
@@ -195,7 +195,7 @@ class _SearchListWidgetState extends State<_SearchListWidget> {
                 hintText: widget.searchHintText,
                 hintStyle: GoogleFonts.cairo(
                   fontSize: 14,
-                  color: context.palette.onSurfaceVariant.withOpacity(0.6),
+                  color: context.palette.onSurfaceVariant.withValues(alpha: 0.6),
                 ),
                 prefixIcon: Icon(Icons.search, color: context.palette.kPrimary),
                 filled: true,
@@ -203,13 +203,13 @@ class _SearchListWidgetState extends State<_SearchListWidget> {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide(
-                    color: context.palette.kPrimary.withOpacity(0.5),
+                    color: context.palette.kPrimary.withValues(alpha: 0.5),
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide(
-                    color: context.palette.kPrimary.withOpacity(0.5),
+                    color: context.palette.kPrimary.withValues(alpha: 0.5),
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -233,7 +233,7 @@ class _SearchListWidgetState extends State<_SearchListWidget> {
                   : ListView.separated(
                       itemCount: filteredItems.length,
                       separatorBuilder: (context, index) =>
-                          Divider(height: 1, color: context.palette.outline.withOpacity(0.2)),
+                          Divider(height: 1, color: context.palette.outline.withValues(alpha: 0.2)),
                       itemBuilder: (context, index) {
                         final item = filteredItems[index];
                         return ListTile(

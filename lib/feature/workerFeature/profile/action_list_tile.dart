@@ -25,12 +25,12 @@ class ActionListTile extends StatelessWidget {
         color: context.palette.surfaceLowest,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: context.palette.outline.withOpacity(0.1),
+          color: context.palette.outline.withValues(alpha: 0.1),
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withValues(alpha: 0.02),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -49,7 +49,7 @@ class ActionListTile extends StatelessWidget {
                   width: 44,
                   height: 44,
                   decoration: BoxDecoration(
-                    color: context.palette.workerprimary.withOpacity(0.1),
+                    color: context.palette.workerprimary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(icon, color: context.palette.workerprimary, size: 22),
@@ -69,7 +69,7 @@ class ActionListTile extends StatelessWidget {
                     Icon(
                       Icons.arrow_forward_ios,
                       size: 14,
-                      color: context.palette.onSurfaceVariant.withOpacity(0.5),
+                      color: context.palette.onSurfaceVariant.withValues(alpha: 0.5),
                     ),
               ],
             ),
