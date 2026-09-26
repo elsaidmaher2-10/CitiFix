@@ -23,7 +23,26 @@ jobs:
       - name: Pub get (with diagnostics)
         run: |
           flutter doctor
-          flutter pub get --enforce-lockfile --verbose || flutter pub get --verbose
+          set +e
+          flutter pub get --enforce-lockfile > /tmp/pub_enforce.log 2>&1
+          CODE=$?
+          echo "enforce-lockfile exit code: $CODE"
+          if [ $CODE -ne 0 ]; then
+            echo "--- enforce failed, retrying plain pub get ---"
+            flutter pub get > /tmp/pub_plain.log 2>&1
+            CODE=$?
+            echo "plain pub get exit code: $CODE"
+          fi
+          set -e
+          if [ $CODE -ne 0 ]; then
+            echo "--- tail of failing pub log ---"
+            tail -n 40 /tmp/pub_plain.log
+            echo "--- publishing tail as annotations ---"
+            tail -n 8 /tmp/pub_plain.log | while IFS= read -r line; do echo "::error::$line"; done
+            exit $CODE
+          fi
+          tail -n 5 /tmp/pub_enforce.log
+          echo "pub get OK"
       - run: flutter precache --ios
       - run: mkdir -p build/ios/SourcePackages
       # regenerates Podfile if missing (safe, does not touch lib/)
