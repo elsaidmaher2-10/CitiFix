@@ -23,6 +23,9 @@ jobs:
       - name: Pub get (with diagnostics)
         run: |
           flutter doctor
+          # MUST come before pub get: `flutter pub get` itself copies SPM
+          # plugins (rsync) and old rsync can't create missing parents.
+          mkdir -p build/ios/SourcePackages
           set +e
           flutter pub get --enforce-lockfile > /tmp/pub_enforce.log 2>&1
           CODE=$?
@@ -80,9 +83,10 @@ jobs:
           cache: true
 
       - run: flutter clean
+      # MUST come before pub get (see ios-check): pub get copies SPM plugins.
+      - run: mkdir -p build/ios/SourcePackages
       - run: flutter pub get --enforce-lockfile || flutter pub get
       - run: flutter precache --ios
-      - run: mkdir -p build/ios/SourcePackages
       - run: flutter create --platforms=ios .
 
       - name: Import signing certificate
