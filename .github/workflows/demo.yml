@@ -1,0 +1,40 @@
+name: Demo Web (React rebuild)
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'demo/**'
+      - '.github/workflows/demo.yml'
+  pull_request:
+    paths:
+      - 'demo/**'
+  workflow_dispatch:
+
+jobs:
+  demo-build:
+    name: Typecheck + SSR verify + build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: demo
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: demo/package-lock.json
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npx tsx src/verify-ssr.tsx
+      - run: npm run build
+
+      - name: Upload demo dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: citifix-demo-dist
+          path: demo/dist
+          retention-days: 14
