@@ -1,5 +1,7 @@
 # CitiFix — Interactive Demo (React rebuild, iPhone frame)
 
+[![Demo Web](https://github.com/elsaidmaher2-10/CitiFix/actions/workflows/demo.yml/badge.svg)](https://github.com/elsaidmaher2-10/CitiFix/actions/workflows/demo.yml)
+
 **Live demo: https://elsaidmaher2-10.github.io/CitiFix/** (auto-deployed from `main` via GitHub Actions)
 
 Standalone React + Vite + TypeScript rebuild of the Flutter app `citifix` v1.0.1+2.
